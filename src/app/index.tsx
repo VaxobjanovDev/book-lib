@@ -1,14 +1,13 @@
+import {useContext} from "react";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Home from "../pages/home";
 import Login from "../pages/login";
-import {useContext} from "react";
 import {AuthContext} from "../store/auth-context";
-
 
 function App() {
   const {admin} = useContext(AuthContext)
-  return (
 
+  return (
     <Routes>
       {admin ? (
         <Route path="/" element={<Home/>}/>
@@ -26,7 +25,6 @@ function App() {
         <Route path="/" element={<Home/>}/>
       )}
     </Routes>
-
   )
 }
 

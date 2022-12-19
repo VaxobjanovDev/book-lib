@@ -15,6 +15,11 @@ export interface BookProps{
   title:string
 }
 
+export interface Book{
+  book:BookProps,
+  status?:number
+}
+
 export interface BooksData{
-  books:BookProps[]
+  books:Book[]
 }

@@ -1,12 +1,13 @@
+import * as React from "react";
+import { useEffect} from "react";
 import Box from "@mui/material/Box";
 import {Menu, MenuItem, Tooltip} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
-import {useEffect} from "react";
 import {axiosInstance} from "../../base-api";
 import {Myself} from "../../types/my-data";
 import {UserIcon} from "../icons/user.icon";
+
 
 export const DropdownMenu = ()=>{
   const [data,setData] = React.useState<Myself>();
@@ -23,6 +24,8 @@ export const DropdownMenu = ()=>{
   const getMyself = async () => {
     await axiosInstance.get('/myself').then(res=>{
       setData(res.data.data)
+    }).catch(e=>{
+      console.log(e)
     })
   }
 

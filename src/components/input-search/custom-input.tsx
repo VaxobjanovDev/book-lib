@@ -1,11 +1,11 @@
-import { InputAdornment, TextField } from "@mui/material";
-import { SearchIcon } from "../icons";
-import React, { useContext, useEffect } from "react";
+import {InputAdornment, TextField} from "@mui/material";
+import {SearchIcon} from "../icons";
+import React, {useContext, useEffect} from "react";
 import {StoreContext} from "../../store/store";
 
 export const CustomInput = () => {
   const [title, setTitle] = React.useState("");
-  const {getBooks,getAllBooks}=  useContext(StoreContext)
+  const {getBooks} = useContext(StoreContext)
 
   const handleChange = (e: any) => {
     setTitle(e.target.value);
@@ -13,11 +13,7 @@ export const CustomInput = () => {
 
   useEffect(() => {
     const getData = setTimeout(() => {
-      if (title !== "") {
-        getBooks("/books",title);
-      } else {
-        getAllBooks("/books");
-      }
+      getBooks("/books", title?"/"+title:"");
     }, 1000);
     return () => clearTimeout(getData);
   }, [title]);
@@ -31,7 +27,7 @@ export const CustomInput = () => {
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <SearchIcon />
+            <SearchIcon/>
           </InputAdornment>
         ),
       }}

@@ -1,38 +1,20 @@
-import * as Yup from 'yup';
 import {Field, Form, Formik,} from 'formik';
 import {Box, Button, Container, TextField, Typography} from '@mui/material';
-import {NavLink} from "react-router-dom";
 import {useContext} from "react";
 import {AuthContext} from "../../store/auth-context";
 
-
 export const LoginModule = () => {
+  const {login} = useContext(AuthContext)
+
+  const onSubmit = async (values: {}) => {
+    await login(values)
+  }
 
   const initialValues = {
     name: "Ali",
     email: 'testali@gmail.com',
     key: 'password',
     secret: 'secretPassword'
-  }
-
-  let validationSchema= Yup.object({
-    email: Yup
-      .string()
-      .email(
-        'Must be a valid email')
-      .max(255)
-      .required(
-        'Email is required'),
-    password: Yup
-      .string()
-      .max(255)
-      .required(
-        'Password is required')
-  })
-  const {login} = useContext(AuthContext)
-
-  const onSubmit = async (values: {}) => {
-    await login(values)
   }
 
   return (
@@ -76,18 +58,6 @@ export const LoginModule = () => {
                   Sign In Now
                 </Button>
               </Box>
-              <Typography
-                color="textSecondary"
-                variant="body2"
-              >
-                Don&apos;t have an account?
-                {' '}
-                <NavLink
-                  to="/register"
-                >
-                  Sign Up
-                </NavLink>
-              </Typography>
             </Form>
           </Formik>
         </Container>

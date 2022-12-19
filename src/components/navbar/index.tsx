@@ -33,7 +33,7 @@ export const Navbar = ({handleDrawerToggle}: Props) => {
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{mr: 2, display: {md: 'none'}}}
+          sx={{mr: 2, display: {md: 'none'},color:"#000"}}
         >
           <MenuIcon/>
         </IconButton>

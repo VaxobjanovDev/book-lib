@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React from "react";
 import {
   Card,
   CardActionArea,
@@ -10,7 +10,6 @@ import { cardStyle, styleHover } from "./styles";
 import { BookProps } from "../../types/my-data";
 import BasicModal from "../../modules/home/components/edit/modal";
 import {Buttons} from "./buttons";
-import {StoreContext} from "../../store/store";
 
 interface BookCardProps {
   book: BookProps;
@@ -19,15 +18,7 @@ interface BookCardProps {
 
 export const BookCard = ({ book, status }: BookCardProps) => {
   const [open, setOpen] = React.useState(false);
-  const {getAllBooks} = useContext(StoreContext)
   const handleOpen = () => setOpen(true);
-  const handleClose = ()=>setOpen(false)
-
-  useEffect(()=>{
-    if(!open){
-      getAllBooks("/books")
-    }
-  },[open])
 
   return (
     <Card sx={cardStyle}>

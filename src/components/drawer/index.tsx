@@ -9,18 +9,26 @@ import {dataLink, dataLink2} from "./data-link";
 import {NavLink} from "react-router-dom";
 import {Box} from "@mui/material";
 import {LogoIcon} from "../icons/logo.icon";
+import {useContext} from "react";
+import {AuthContext} from "../../store/auth-context";
 
 export const DrawerCompo = () => {
+  const {logOut} = useContext(AuthContext)
+
+  const handleLogOut = async ()=>{
+    await logOut()
+  }
+
   return (
     <>
-      <Toolbar>
+      <Toolbar sx={{background:"#f9f9f9"}}>
         <LogoIcon/>
       </Toolbar>
-      <Box sx={{display: "flex", justifyContent: "space-between", flexDirection: "column", height: "100%"}}>
+      <Box sx={{display: "flex", justifyContent: "space-between", flexDirection: "column", height: "100%",background:"#f9f9f9",}}>
         <List>
           {dataLink.map((link) => (
             <NavLink key={link.id} to={link.path} style={{textDecoration:"none"}}>
-              <ListItem disablePadding>
+              <ListItem disablePadding sx={{color:"#727272"}}>
                 <ListItemButton>
                   <ListItemIcon>
                     {link.icon}
@@ -33,8 +41,8 @@ export const DrawerCompo = () => {
         </List>
         <List>
           {dataLink2.map((link) => (
-            <NavLink key={link.id} to={"/"} style={{textDecoration:"none"}}>
-              <ListItem disablePadding>
+            <NavLink onClick={handleLogOut} key={link.id} to={"/"} style={{textDecoration:"none"}}>
+              <ListItem disablePadding sx={{color:"#727272"}}>
                 <ListItemButton>
                   <ListItemIcon>
                     {link.icon}

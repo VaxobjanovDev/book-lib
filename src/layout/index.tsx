@@ -29,7 +29,7 @@ export const BaseLayout = ({window, children}: PropsTypes) => {
       <Navbar handleDrawerToggle={handleDrawerToggle}/>
       <Box
         component="nav"
-        sx={{width: {md: drawerWidth}, flexShrink: {sm: 0}}}
+        sx={{width: {md: drawerWidth}, flexShrink: {sm: 0,}}}
         aria-label="mailbox folders"
       >
         <Drawer
@@ -41,7 +41,7 @@ export const BaseLayout = ({window, children}: PropsTypes) => {
             keepMounted: true,
           }}
           sx={{
-            display: {xs: 'block', sm: 'none'},
+            display: {xs: 'block',},
             '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
           }}
         >
@@ -50,7 +50,7 @@ export const BaseLayout = ({window, children}: PropsTypes) => {
         <Drawer
           variant="permanent"
           sx={{
-            display: {xs:"none",sm: 'none', md: 'block'},
+            display: {xs:"none",sm: 'none', md: 'block'},background:"#271D1B",
             '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
           }}
           open

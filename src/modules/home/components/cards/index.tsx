@@ -6,8 +6,8 @@ import {BooksData} from "../../../../types/my-data";
 
 
 
-export const Cards = ({books}:BooksData)=>{
 
+export const Cards = ({books}:BooksData)=>{
   const [currentPage, setCurrentPage] = React.useState(1);
 
   const PER_PAGE = 12;
