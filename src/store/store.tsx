@@ -50,9 +50,10 @@ export const StoreContextProvider = ({children}: ChildrenInterface) => {
         book: res.data.data,
         status: 0
       }
+      let checkBooks = state.books!==null?state.books:[]
       setState({
         ...state,
-        books: [...state.books, book],
+        books: [...checkBooks, book],
       });
     })
   }
