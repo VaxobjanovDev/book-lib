@@ -1,9 +1,9 @@
-import {BaseLayout} from "../layout";
 import React from "react";
-import {HomeModule} from "../modules/home";
+import {HomeModule} from "../../modules/home";
+import {BaseLayout} from "../../layout";
 
-function Home(){
-  return(
+function Home() {
+  return (
     <BaseLayout>
       <HomeModule/>
     </BaseLayout>

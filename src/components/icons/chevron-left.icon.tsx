@@ -1,11 +1,10 @@
-import { IconType } from "../../types/utility.types";
 
-export const ChevronLeft: IconType = ({ width, height}) => (
+export const ChevronLeft = () => (
   <svg
-    width={"25" || width}
-    height={"25" || height}
+    width={"25"}
+    height={"25"}
     viewBox="0 0 9 15"
-    fill={"#00C48C"}
+    fill={"#2091F9"}
     xmlns="http://www.w3.org/2000/svg"
   >
     <g clipPath="url(#clip0_532_757)">
